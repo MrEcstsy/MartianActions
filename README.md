@@ -1,6 +1,6 @@
 # 🌌 MartianActions
 A lightweight, modern **action item framework** for PocketMine-MP.  
-MartianActions lets you create fully configurable items that run actions when used — perfect for crates, scrolls, reward bundles, kits, and custom gameplay mechanics.
+MartianActions lets you create fully configurable items that run actions when used, perfect for crates, scrolls, reward bundles, kits, and custom gameplay mechanics.
 
 Designed to be:
 - **Clean & simple**
