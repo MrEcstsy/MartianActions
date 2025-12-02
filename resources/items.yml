@@ -1,0 +1,109 @@
+# ==========================================================
+# MartianActions - Item Action Configuration
+# ==========================================================
+# Each entry under "items:" is a custom action item.
+# The key (like "martian:starter_kit") is the IDENTIFIER.
+# It should be UNIQUE. Use your plugin/server prefix to avoid conflicts.
+# Example prefixes:
+#   glacia:starter_kit
+#   factions:claim_note
+#   martian:crate_key
+#
+# Namespacing prevents collisions between multiple plugins.
+# ==========================================================
+
+items:
+
+  # --------------------------------------------------------
+  # Example 1: Starter Kit
+  # --------------------------------------------------------
+  "martian:starter_kit":
+    # material:
+    #   The base item type. You can use:
+    material: "paper"
+
+    # name:
+    #   The display name of the item.
+    #   You can use Minecraft color codes (&a, &b, &r, &l, etc).
+    name: "&r&l&bStarter Kit"
+
+    # lore:
+    #   Lines shown under the item name.
+    lore:
+      - "&7Redeem a starter kit!"
+
+    # remove-on-use:
+    #   true = the item disappears when used
+    #   false = the item stays in the player's hand
+    remove-on-use: true
+
+    # actions:
+    #   These run IN ORDER when the player right-clicks with the item.
+    actions:
+
+      # 1. Run commands as the player
+      - type: "run_commands"
+        commands:
+          - "kit give {player} starter"
+
+      # 2. Play an effect on the player's location
+      #    This could be any from https://wiki.bedrock.dev/particles/vanilla-particles.html
+      - type: "play_effect"
+        effect: "minecraft:basic_smoke_particle"
+
+      # 3. Send a formatted message to the player
+      - type: "message"
+        text: "&aYou have redeemed a starter kit!"
+
+  "martian:mini_explosion":
+    material: "gunpowder"
+    name: "&c&lMini Explosion Trigger"
+    lore:
+      - "&7Creates a small burst effect!"
+    remove-on-use: true
+    actions:
+      - type: "play_effect"
+        effect: "minecraft:explosion_particle"
+        offset: # optional
+          x: 0 
+          y: 1 
+          z: 0   
+        repeat: 5 # optional
+
+      - type: "message"
+        message-type: "actionbar" # optional
+        text: "&cBoom!"
+
+  "martian:heal_scroll":
+    material: "paper"
+    name: "&aHeal Scroll"
+    lore:
+      - "&7Right-click to heal yourself!"
+    remove-on-use: true
+    actions:
+      - type: "run_commands"
+        run-as: "player" # optional (default = console)
+        commands:
+          - "effect {player} regeneration 5 2 true"
+
+      - type: "message"
+        message-type: "title" # optional
+        text: "&aHealed!"
+        subtitle: "&7Feel better!" # optional
+
+  "martian:bread_bundle":
+    material: "bread"
+    name: "&eBread Bundle"
+    lore:
+      - "&7Right-click to receive food!"
+    remove-on-use: true
+    actions:
+      - type: "give_items"
+        items:
+          - item: "bread"
+            amount: 16
+          - item: "cooked_beef"
+            amount: 8
+
+      - type: "message"
+        text: "&eYou received some food!"

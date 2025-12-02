@@ -1,0 +1,13 @@
+name: MartianActions
+main: dvrkarts\MartianActions\Loader
+api: 5.3.0
+version: 1.0.0
+author: dvrkarts
+
+permissions:
+  martianactions.default:
+    default: true
+  martianactions.list:
+    default: op
+  martianactions.give:
+    default: op

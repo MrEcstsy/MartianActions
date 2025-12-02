@@ -1,0 +1,9 @@
+# (!) DO NOT CHANGE (!)
+version: 1
+
+# Plugin Settings
+settings:
+# ECONOMY IS NOT IMPLEMENTED YET.
+  economy:
+    enabled: false
+    provider: BedrockEconomy
