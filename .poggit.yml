@@ -1,0 +1,15 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/MrEcstsy/MartianActions
+build-by-default: true
+branches:
+- main
+projects:
+  MartianActions:
+    path: ""
+    libs:
+      - src: ifera-mc/ConfigUpdater/ConfigUpdater
+        version: ^2.1.0
+      - src: Paroxity/Commando/Commando
+        version: ^3.3.0
+      - src: MrEcstsy/MartianUtilities/MartianUtilities
+        version: ^1.0.3
+...
